@@ -1,0 +1,15 @@
+@mixin css3-prefix($property, $value) {
+  #{$property}: $value;
+  -webkit-#{$property}: $value;
+  -moz-#{$property}: $value;
+  -ms-#{$property}: $value;
+  -o-#{$property}: $value;
+}
+
+@mixin flex($align: flex-start, $justify: center) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  @include css3-prefix(align-items, $align);
+  @include css3-prefix(justify-content, $justify);
+}
