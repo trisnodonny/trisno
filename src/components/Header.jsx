@@ -30,6 +30,13 @@ export default function NavigationBar() {
               <a href="/">My Resume</a>
             </li>
           </ul>
+          <div className="contact">
+            <span className="get-in-touch">GET IN TOUCH</span>
+            <ul className="contact-link">
+              <li><a href="/">demo@gmail.com</a></li>
+              <li><a href="/">contact.me/demo</a></li>
+            </ul>
+          </div>
         </nav>
       </div>
     </header>
