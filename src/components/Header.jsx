@@ -1,51 +1,125 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function NavigationBar() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [visibility, setVisibility] = useState({
+    home: false,
+    project: true,
+    shelf: true,
+  });
+
+  const navClass = isOpen ? "nav is-open" : "nav";
+  const btnClass = isOpen ? "header-cta is-open" : "header-cta";
+  const links = [
+    { name: "home", path: "/", label: "Home" },
+    { name: "project", path: "/project", label: "My Project" },
+    { name: "shelf", path: "/shelf", label: "My Shelf" },
+  ];
+
   const handleOnClickNav = () => {
-    setIsOpen(prevState => !prevState)
+    setIsOpen((prevState) => !prevState);
   };
 
-  const navClass = isOpen ? "nav is-open" : "nav"
-  const btnClass = isOpen ? "header-cta is-open" : "header-cta"
+  const handleLinkClick = (link) => {
+    setIsOpen(false);
+    setVisibility({
+      home: link === "home" ? false : true,
+      project: link === "project" ? false : true,
+      shelf: link === "shelf" ? false : true,
+    })
+  };
 
   return (
     <header className="header-container">
       <div className="header-content">
-        <a className="header-logo" href="/">
+        <Link className="header-logo" to="/" onClick={handleLinkClick}>
           Trisno.
-        </a>
+        </Link>
         <button className={btnClass} onClick={handleOnClickNav}>
           <span className="block"></span>
           <span className="block"></span>
         </button>
         <nav className={navClass}>
           <ul className="nav-list">
-            <li className="nav-list-link">
-              <a className="anchor-hover" href="/">My Work</a>
+            {links.map(link => (
+              visibility[link.name] && (
+                <li key={link.name} className="nav-list-link">
+                  <Link
+                    className="anchor-hover"
+                    to={link.path}
+                    onClick={() => handleLinkClick(link.name)}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              )
+            ))}
+            {/* <li className={homeLinkClass}>
+              <Link className="anchor-hover" to="/" onClick={handleClickHome}>
+                Home
+              </Link>
             </li>
-            <li className="nav-list-link">
-              <a className="anchor-hover" href="/">My Shelf</a>
+            <li className={projectLinkClass}>
+              <Link
+                className="anchor-hover"
+                to="/project"
+                onClick={handleClickProject}
+              >
+                My Project
+              </Link>
             </li>
+            <li className={shelfLinkClass}>
+              <Link
+                className="anchor-hover"
+                to="/shelf"
+                onClick={handleClickShelf}
+              >
+                My Shelf
+              </Link>
+            </li> */}
             <li className="nav-list-link">
-              <a className="anchor-hover" href="/">My Resume</a>
+              <Link className="anchor-hover" to="/">
+                My Resume
+              </Link>
             </li>
           </ul>
           <ul className="nav-list">
             <li className="nav-list-link get-in-touch">GET IN TOUCH</li>
             <li className="nav-list-link">
-              <a className="anchor-hover" href="/">demo@gmail.com</a>
-              </li>
+              <Link className="anchor-hover" to="mailto:trisnodonny@gmail.com">
+                trisnodonny@gmail.com
+              </Link>
+            </li>
             <li className="nav-list-link">
-              <a className="anchor-hover" href="/">contact.me/demo</a>
+              <Link className="anchor-hover" to="/">
+                contact.me/demo
+              </Link>
             </li>
           </ul>
           <ul className="nav-list">
             <li className="nav-list-link row-link">
-              <a className="anchor-hover" href="/">GH</a>
-              </li>
+              <Link
+                className="anchor-hover"
+                to="https://github.com/trisnodonny"
+                target="_blank"
+              >
+                GH
+              </Link>
+            </li>
             <li className="nav-list-link row-link">
-              <a className="anchor-hover" href="/">LN</a>
+              <Link className="anchor-hover" to="/">
+                LN
+              </Link>
+            </li>
+            <li className="nav-list-link row-link">
+              <Link
+                className="anchor-hover"
+                to="https://www.youtube.com/@donnytrisno7652"
+                target="_blank"
+              >
+                YT
+              </Link>
             </li>
           </ul>
         </nav>

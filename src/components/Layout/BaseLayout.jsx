@@ -7,7 +7,7 @@ export default function BaseLayout() {
     <>
       <Header />
       <Outlet />
-      <Footer/>
+      {/* <Footer/> */}
     </>
   )
 }
