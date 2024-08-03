@@ -1,12 +1,12 @@
 import { useState } from "react";
 
 export default function NavigationBar() {
-  const [isActive, setIsActive] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
   const handleOnClickNav = () => {
-    setIsActive(prevState => !prevState)
+    setIsOpen(prevState => !prevState)
   };
 
-  const navClass = isActive ? "nav is-active" : "nav"
+  const navClass = isOpen ? "nav is-open" : "nav"
 
   return (
     <header className="header-container">
@@ -19,24 +19,34 @@ export default function NavigationBar() {
           <span className="block"></span>
         </button>
         <nav className={navClass}>
-          <ul className="nav-site">
-            <li className="nav-site-link">
-              <a href="/">My Work</a>
+          <ul className="nav-list">
+            <li className="nav-list-link">
+              <a className="anchor-hover" href="/">My Work</a>
             </li>
-            <li className="nav-site-link">
-              <a href="/">My Shelf</a>
+            <li className="nav-list-link">
+              <a className="anchor-hover" href="/">My Shelf</a>
             </li>
-            <li className="nav-site-link">
-              <a href="/">My Resume</a>
+            <li className="nav-list-link">
+              <a className="anchor-hover" href="/">My Resume</a>
             </li>
           </ul>
-          <div className="contact">
-            <span className="get-in-touch">GET IN TOUCH</span>
-            <ul className="contact-link">
-              <li><a href="/">demo@gmail.com</a></li>
-              <li><a href="/">contact.me/demo</a></li>
-            </ul>
-          </div>
+          <ul className="nav-list">
+            <li className="nav-list-link get-in-touch">GET IN TOUCH</li>
+            <li className="nav-list-link">
+              <a className="anchor-hover" href="/">demo@gmail.com</a>
+              </li>
+            <li className="nav-list-link">
+              <a className="anchor-hover" href="/">contact.me/demo</a>
+            </li>
+          </ul>
+          <ul className="nav-list">
+            <li className="nav-list-link row-link">
+              <a className="anchor-hover" href="/">GH</a>
+              </li>
+            <li className="nav-list-link row-link">
+              <a className="anchor-hover" href="/">LN</a>
+            </li>
+          </ul>
         </nav>
       </div>
     </header>

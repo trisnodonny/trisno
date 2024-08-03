@@ -20,6 +20,6 @@
   border-radius: $value;
 }
 
-@mixin transition($properties, $duration: 0.3s, $timing: ease, $delay: 0s) {
-  transition: $properties $duration $timing $delay;
+@mixin transition($properties, $duration: 300ms, $timing: ease, $delay: 0ms) {
+  @include css3-prefix(transition, $properties $duration $timing $delay);
 }
