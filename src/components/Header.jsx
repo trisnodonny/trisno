@@ -7,6 +7,7 @@ export default function NavigationBar() {
   };
 
   const navClass = isOpen ? "nav is-open" : "nav"
+  const btnClass = isOpen ? "header-cta is-open" : "header-cta"
 
   return (
     <header className="header-container">
@@ -14,7 +15,7 @@ export default function NavigationBar() {
         <a className="header-logo" href="/">
           Trisno.
         </a>
-        <button className="header-cta" onClick={handleOnClickNav}>
+        <button className={btnClass} onClick={handleOnClickNav}>
           <span className="block"></span>
           <span className="block"></span>
         </button>
