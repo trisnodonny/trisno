@@ -13,3 +13,13 @@
   @include css3-prefix(align-items, $align);
   @include css3-prefix(justify-content, $justify);
 }
+
+@mixin border-radius($value){
+  -moz-border-radius: $value;
+  -webkit--radius: $value;
+  border-radius: $value;
+}
+
+@mixin transition($properties, $duration: 0.3s, $timing: ease, $delay: 0s) {
+  transition: $properties $duration $timing $delay;
+}
