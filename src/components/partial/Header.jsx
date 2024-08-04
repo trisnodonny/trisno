@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function NavigationBar() {
@@ -8,7 +8,10 @@ export default function NavigationBar() {
     project: true,
     shelf: true,
   });
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
+  const logoClass =
+    isOpen && screenWidth < 540 ? "header-logo is-open" : "header-logo";
   const navClass = isOpen ? "nav is-open" : "nav";
   const btnClass = isOpen ? "header-cta is-open" : "header-cta";
   const links = [
@@ -27,13 +30,21 @@ export default function NavigationBar() {
       home: link === "home" ? false : true,
       project: link === "project" ? false : true,
       shelf: link === "shelf" ? false : true,
-    })
+    });
   };
+
+  useEffect(() => {
+    const handleResize = () => setScreenWidth(window.innerWidth);
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <header className="header-container">
       <div className="header-content">
-        <Link className="header-logo" to="/" onClick={handleLinkClick}>
+        <Link className={logoClass} to="/" onClick={handleLinkClick}>
           Trisno.
         </Link>
         <button className={btnClass} onClick={handleOnClickNav}>
@@ -42,42 +53,20 @@ export default function NavigationBar() {
         </button>
         <nav className={navClass}>
           <ul className="nav-list">
-            {links.map(link => (
-              visibility[link.name] && (
-                <li key={link.name} className="nav-list-link">
-                  <Link
-                    className="anchor-hover"
-                    to={link.path}
-                    onClick={() => handleLinkClick(link.name)}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              )
-            ))}
-            {/* <li className={homeLinkClass}>
-              <Link className="anchor-hover" to="/" onClick={handleClickHome}>
-                Home
-              </Link>
-            </li>
-            <li className={projectLinkClass}>
-              <Link
-                className="anchor-hover"
-                to="/project"
-                onClick={handleClickProject}
-              >
-                My Project
-              </Link>
-            </li>
-            <li className={shelfLinkClass}>
-              <Link
-                className="anchor-hover"
-                to="/shelf"
-                onClick={handleClickShelf}
-              >
-                My Shelf
-              </Link>
-            </li> */}
+            {links.map(
+              (link) =>
+                visibility[link.name] && (
+                  <li key={link.name} className="nav-list-link">
+                    <Link
+                      className="anchor-hover"
+                      to={link.path}
+                      onClick={() => handleLinkClick(link.name)}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                )
+            )}
             <li className="nav-list-link">
               <Link className="anchor-hover" to="/">
                 My Resume
@@ -87,8 +76,12 @@ export default function NavigationBar() {
           <ul className="nav-list">
             <li className="nav-list-link get-in-touch">GET IN TOUCH</li>
             <li className="nav-list-link">
-              <Link className="anchor-hover" to="mailto:trisnodonny@gmail.com">
-                trisnodonny@gmail.com
+              <Link
+                className="anchor-hover"
+                to="mailto:trisnodonny@gmail.com"
+                type="email"
+              >
+                mail
               </Link>
             </li>
             <li className="nav-list-link">

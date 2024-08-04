@@ -1,10 +1,17 @@
-$container-max-widths: (
+$breakpoints: (
   sm: 540px,
   md: 720px,
   lg: 960px,
   xl: 1140px,
   xxl: 1320px
 );
+
+// Theme Colors 
+$gunmetal: #223843;
+$anti-flash-white: #eff1f3;
+$timberwolf: #dbd3d8;
+$cerulean: #006989;
+$cadet-gray: #a3bac3; 
 
 // Basic Colors
 $white: #fff;

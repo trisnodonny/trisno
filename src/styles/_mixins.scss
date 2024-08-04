@@ -14,7 +14,7 @@
   @include css3-prefix(justify-content, $justify);
 }
 
-@mixin border-radius($value){
+@mixin border-radius($value) {
   -moz-border-radius: $value;
   -webkit--radius: $value;
   border-radius: $value;
@@ -22,4 +22,15 @@
 
 @mixin transition($properties, $duration: 300ms, $timing: ease, $delay: 0ms) {
   @include css3-prefix(transition, $properties $duration $timing $delay);
+}
+
+@mixin breakpoint-below($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
 }

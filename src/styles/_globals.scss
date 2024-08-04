@@ -2,8 +2,12 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  color: $black;
-  background-color: $blue-light;
+  color: $anti-flash-white;
+  background-color: $cerulean;
+
+  &.no-scroll {
+    overflow: hidden !important;
+  }
 }
 
 .container {
