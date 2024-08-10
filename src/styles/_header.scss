@@ -1,23 +1,25 @@
 .header-container {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  position: sticky;
+  position: fixed;
   top: 0;
-  background-color: transparent;
+  right: 0;
+  // bottom: 0;
+  left: 0 ;
+  z-index: 1000;
 
   .header-content {
     @include flex(center, space-between);
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
     padding-inline: 3em;
     height: 10rem;
-    z-index: 1000;
     position: relative;
 
     .header-logo {
-      z-index: 999;
+      z-index: 1;
       font-weight: 900;
       font-size: 1.5rem;
-      color: $anti-flash-white;
+      color: $green-norway;
 
       @include breakpoint-below("sm") {
         &.is-open {
@@ -73,9 +75,11 @@
       top: 3em;
       right: 1.5em;
       width: 18em;
+      visibility: hidden;
 
       &.is-open {
         opacity: 1;
+        visibility: visible;
 
         &::before {
           opacity: 1;
@@ -215,6 +219,24 @@
           &:nth-child(3) {
             transition-delay: 0ms;
           }
+        }
+      }
+    }
+  }
+
+  @include breakpoint-below("sm") {
+  position: relative;
+
+    .header-content {
+      .header-cta {
+  
+        &.is-open {
+          .block {
+            background-color: $cerulean;
+          }
+        }
+        .block {
+          background-color: $green-norway;
         }
       }
     }
