@@ -3,15 +3,15 @@
   top: 0;
   right: 0;
   // bottom: 0;
-  left: 0 ;
+  left: 0;
   z-index: 1000;
 
   .header-content {
     @include flex(center, space-between);
-    max-width: 1200px;
+    // max-width: 1200px;
     width: 100%;
     margin: 0 auto;
-    padding-inline: 3em;
+    padding-inline: 6em;
     height: 10rem;
     position: relative;
 
@@ -224,12 +224,13 @@
     }
   }
 
-  @include breakpoint-below("sm") {
-  position: relative;
+  @include breakpoint-below("md") {
+    position: relative;
 
     .header-content {
+      padding-inline: 3em;
+
       .header-cta {
-  
         &.is-open {
           .block {
             background-color: $cerulean;
