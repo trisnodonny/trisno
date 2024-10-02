@@ -1,7 +1,7 @@
 export default function Hero() {
   return (
-    <section id="hero" className="hero-container">
-      <div className="hero-content">
+    <section id="hero" className="hero">
+      <div className="hero-wrapper">
         <div className="hero-title">
           <h1 className="title">
             Frontend
@@ -24,11 +24,9 @@ export default function Hero() {
           </ul>
         </div>
         <div className="hero-img">
-          <img
-            className="img"
-            src="https://cdn.dribbble.com/users/1338391/screenshots/17547297/media/87cde54877f594d7e40ff90094adc782.jpg?resize=400x300&vertical=center"
-            alt="random"
-          />
+          <div>
+            <img className="img" src="https://shorturl.at/QyPPy" alt="random" />
+          </div>
         </div>
       </div>
     </section>

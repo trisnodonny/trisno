@@ -42,8 +42,8 @@ export default function NavigationBar() {
   }, []);
 
   return (
-    <header className="header-container">
-      <div className="header-content">
+    <header className="header">
+      <div className="header-wrapper">
         <Link className={logoClass} to="/" onClick={handleLinkClick}>
           Trisno.
         </Link>
@@ -52,11 +52,11 @@ export default function NavigationBar() {
           <span className="block"></span>
         </button>
         <nav className={navClass}>
-          <ul className="nav-list">
+          <ul className="nav-wrapper">
             {links.map(
               (link) =>
                 visibility[link.name] && (
-                  <li key={link.name} className="nav-list-link">
+                  <li key={link.name} className="nav-link">
                     <Link
                       className="anchor-hover"
                       to={link.path}
@@ -67,15 +67,15 @@ export default function NavigationBar() {
                   </li>
                 )
             )}
-            <li className="nav-list-link">
+            <li className="nav-link">
               <Link className="anchor-hover" to="/">
                 My Resume
               </Link>
             </li>
           </ul>
-          <ul className="nav-list">
-            <li className="nav-list-link get-in-touch">GET IN TOUCH</li>
-            <li className="nav-list-link">
+          <ul className="nav-wrapper">
+            <li className="nav-link get-in-touch">GET IN TOUCH</li>
+            <li className="nav-link">
               <Link
                 className="anchor-hover"
                 to="mailto:trisnodonny@gmail.com"
@@ -84,14 +84,14 @@ export default function NavigationBar() {
                 mail
               </Link>
             </li>
-            <li className="nav-list-link">
+            <li className="nav-link">
               <Link className="anchor-hover" to="/">
                 contact.me/demo
               </Link>
             </li>
           </ul>
-          <ul className="nav-list">
-            <li className="nav-list-link row-link">
+          <ul className="nav-wrapper">
+            <li className="nav-link row-link">
               <Link
                 className="anchor-hover"
                 to="https://github.com/trisnodonny"
@@ -100,12 +100,12 @@ export default function NavigationBar() {
                 GH
               </Link>
             </li>
-            <li className="nav-list-link row-link">
+            <li className="nav-link row-link">
               <Link className="anchor-hover" to="/">
                 LN
               </Link>
             </li>
-            <li className="nav-list-link row-link">
+            <li className="nav-link row-link">
               <Link
                 className="anchor-hover"
                 to="https://www.youtube.com/@donnytrisno7652"
