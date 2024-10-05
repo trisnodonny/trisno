@@ -26,7 +26,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="footer">
+    <footer className="footer desktop-content">
       <div className="footer-wrapper">
         <div className="footer-top">
           <div className="contact">
@@ -60,7 +60,34 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-        <div className="footer-bottom"></div>
+        <div className="footer-bottom">
+          <span className="copy-right">© Donny Trisno 2024</span>
+          <ul className="socials">
+            <li>
+              <Link
+                className="anchor-hover"
+                to="https://github.com/trisnodonny"
+                target="_blank"
+              >
+                GH
+              </Link>
+            </li>
+            <li>
+              <Link className="anchor-hover" to="/">
+                LN
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="anchor-hover"
+                to="https://www.youtube.com/@donnytrisno7652"
+                target="_blank"
+              >
+                YT
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </footer>
   );

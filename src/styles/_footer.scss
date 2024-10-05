@@ -1,7 +1,6 @@
 .footer {
   @include flex(center);
-  height: 100vh;
-  
+
   .footer-wrapper {
     @include flex(center);
     flex-direction: column;
@@ -12,15 +11,18 @@
 
     .footer-top {
       @include flex;
-      margin-right: auto;
-      gap: 15rem;
+      width: 100%;
+      border-bottom: 1.5px solid $green-norway;
+      padding-bottom: 6rem;
 
       .contact {
         @include flex;
         flex-direction: column;
         gap: 2rem;
+        flex: 1;
 
         .hello {
+          color: $white;
           opacity: 0.7;
           letter-spacing: 6px;
           text-transform: uppercase;
@@ -32,19 +34,39 @@
         flex-direction: column;
         gap: 2rem;
         margin-top: 3rem;
+        flex: 1;
       }
     }
 
+    .footer-bottom {
+      @include flex(center, space-between);
+      width: 100%;
+      padding-top: 2rem;
+
+      .copy-right {
+        color: $green-norway;
+      }
+
+      .socials {
+        @include flex;
+        gap: 1rem;
+
+        @include breakpoint-below("sm") {
+          display: none;
+        }
+      }
+
+    }
+
     @include breakpoint-below("sm") {
-      padding: 0 3rem;
-  
+      padding: 3rem;
+
       .footer-top {
         flex-direction: column;
         gap: 1rem;
       }
     }
   }
-  
 }
 
 .anchor-hover {

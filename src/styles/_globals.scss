@@ -20,3 +20,11 @@ body {
   margin: 0 auto;
   padding: 0 1rem;
 }
+
+.desktop-content {
+  height: 100vh;
+
+  @include breakpoint-below("sm") {
+    height: auto;
+  }
+}
