@@ -1,6 +1,6 @@
 .footer {
   @include flex(center);
-
+  
   .footer-wrapper {
     @include flex(center);
     flex-direction: column;
@@ -49,7 +49,7 @@
 
       .socials {
         @include flex;
-        gap: 1rem;
+        gap: 2rem;
 
         @include breakpoint-below("sm") {
           display: none;
