@@ -1,5 +1,6 @@
 .footer {
   @include flex(center);
+  height: inherit;
   
   .footer-wrapper {
     @include flex(center);

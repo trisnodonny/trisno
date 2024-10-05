@@ -8,6 +8,7 @@ export default function HomePage() {
       <Hero />
       <Introduction />
       <Journey />
+      <Introduction />
     </main>
   );
 }

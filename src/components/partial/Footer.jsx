@@ -26,7 +26,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="footer desktop-content">
+    <footer className="footer" dataSection="foot">
       <div className="footer-wrapper">
         <div className="footer-top">
           <div className="contact">

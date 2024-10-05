@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
+html {
+  scroll-snap-type: y mandatory;
+
+  @include breakpoint-below("lg") {
+    scroll-snap-type: none;
+  }
+}
+
 body {
   font-family: "Inter", sans-serif;
   color: $anti-flash-white;
@@ -14,10 +22,31 @@ body {
     overflow: hidden !important;
   }
 }
-.desktop-content {
-  height: 100vh;
 
-  @include breakpoint-below("sm") {
-    height: auto;
+section {
+  &[dataSection="hero"],
+  &[dataSection="content"] {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+  }
+
+  &[dataSection="content"] {
+    height: 100vh;
+  }
+
+  @include breakpoint-below("md") {
+    height: auto !important;
+  }
+}
+
+footer {
+  &[dataSection="foot"] {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+    height: 100vh;
+  }
+
+  @include breakpoint-below("md") {
+    height: auto !important;
   }
 }

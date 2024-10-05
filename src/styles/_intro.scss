@@ -1,3 +1,62 @@
-.introduction {
+.intro {
+  width: 100%;
   background-color: $white;
+  color: $cerulean;
+  @include flex(center);
+
+  .intro-wrapper {
+    max-width: 1440px;
+    width: 100%;
+    padding: 0 6rem;
+    margin: 0 auto;
+    height: auto;
+    width: 100%;
+    @include flex(center);
+    flex-direction: column;
+
+    .text-wrapper {
+      width: 50%;
+      padding: 0 2rem;
+
+      &.left {
+        margin-right: auto;
+      }
+
+      &.right {
+        margin-left: auto;
+      }
+
+      .title {
+        font-size: 4rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+
+      .desc {
+        font-size: 1rem;
+        line-height: 1.5rem;
+        text-wrap: pretty;
+      }
+    }
+
+    @include breakpoint-below("lg") {
+      padding: 3rem;
+
+      .text-wrapper {
+        padding: 0;
+        width: 100%;
+
+        &:first-child {
+          margin-bottom: 2rem;
+        }
+        .title {
+          font-size: 3rem;
+        }
+
+        .desc {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
 }
