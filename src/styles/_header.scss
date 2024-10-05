@@ -1,8 +1,8 @@
 .header {
-  width: 100%;
   position: fixed;
-  top: 0;
   z-index: 1000;
+  width: 100%;
+  top: 0;
 
   .header-wrapper {
     @include flex(center, space-between);
@@ -28,7 +28,7 @@
 
     .header-cta {
       @include flex();
-      gap: 10px;
+      gap: 1rem;
       flex-direction: column;
       background-color: transparent;
       cursor: pointer;
@@ -39,11 +39,11 @@
         height: 25px;
 
         .block {
-          width: 27px;
+          width: 36px;
           transform: rotate(-45deg);
 
           &:last-child {
-            width: 27px;
+            width: 36px;
             transform: translateY(6px) rotate(45deg);
           }
         }
@@ -53,13 +53,13 @@
         display: block;
         margin-left: auto;
         width: 40px;
-        height: 2px;
+        height: 3px;
         background-color: $cerulean;
         transform-origin: top right;
         @include transition(all);
 
         &:last-child {
-          width: 27px;
+          width: 25px;
           transform-origin: bottom right;
         }
       }

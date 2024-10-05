@@ -2,10 +2,10 @@
   background-image: linear-gradient(90deg, $cerulean 67%, $green-norway 33%);
 
   .hero-wrapper {
-    @include flex(flex-start, space-between);
+    @include flex(center, space-between);
     max-width: 1440px;
     width: 100%;
-    padding: 0 2rem;
+    padding: 0 6rem;
     margin: 0 auto;
     padding-top: 10rem;
     padding-bottom: 2rem;
@@ -25,13 +25,14 @@
       }
       .desc {
         font-size: 1.2rem;
-        line-height: 1.5rem;
+        line-height: 2rem;
       }
 
       .detail {
         display: flex;
         gap: 1rem;
-        margin-top: 2rem;
+        margin-top: 5rem;
+        margin-bottom: 2rem;
 
         li {
           text-wrap: pretty;
@@ -46,12 +47,11 @@
       position: relative;
       flex: 1;
 
-      .img {
-        top: 0;
-        left: 2em;
-        display: block;
-        width: 100%;
-        z-index: 1;
+      .img-wrapper {
+        .img {
+          display: block;
+          width: 100%;
+        }
       }
     }
 
@@ -63,6 +63,7 @@
       .hero-title,
       .hero-img {
         width: 100%;
+        padding: 2rem 0;
 
         .title {
           font-size: 2.5rem;
@@ -70,6 +71,7 @@
 
         .detail {
           margin-top: 4rem;
+          margin-bottom: 0;
 
           li {
             font-size: 10px;
@@ -79,7 +81,20 @@
 
       .hero-img {
         flex: none;
-        padding: 4rem 0;
+        position: relative;
+        z-index: 1;
+
+        &::after {
+          content: "";
+          position: absolute;
+          width: 100vw;
+          height: 100%;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: $green-norway;
+          z-index: -1;
+        }
       }
     }
   }

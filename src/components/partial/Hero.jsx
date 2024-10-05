@@ -24,8 +24,8 @@ export default function Hero() {
           </ul>
         </div>
         <div className="hero-img">
-          <div>
-            <img className="img" src="https://shorturl.at/QyPPy" alt="random" />
+          <div className="img-wrapper">
+            <img className="img" src="https://placehold.co/400" alt="random" />
           </div>
         </div>
       </div>
