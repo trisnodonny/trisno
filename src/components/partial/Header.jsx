@@ -3,13 +3,8 @@ import { Link } from "react-router-dom";
 import { routes } from "@constants/routes";
 import { handleRouteClick } from "@helpers/handleRouteClick";
 
-export default function NavigationBar() {
+export default function NavigationBar({visibility, handleLinkClick}) {
   const [isOpen, setIsOpen] = useState(false);
-  const [visibility, setVisibility] = useState({
-    home: false,
-    project: true,
-    shelf: true,
-  });
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   const logoClass =
@@ -19,11 +14,6 @@ export default function NavigationBar() {
 
   const handleOnClickNav = () => {
     setIsOpen((prevState) => !prevState);
-  };
-
-  const handleLinkClick = (route) => {
-    setIsOpen(false);
-    setVisibility(handleRouteClick(route));
   };
 
   useEffect(() => {
@@ -37,7 +27,7 @@ export default function NavigationBar() {
   return (
     <header className="header">
       <div className="header-wrapper">
-        <Link className={logoClass} to="/" onClick={handleLinkClick}>
+        <Link className={logoClass} to="/" onClick={() => handleLinkClick("home")}>
           Trisno.
         </Link>
         <button className={btnClass} onClick={handleOnClickNav}>

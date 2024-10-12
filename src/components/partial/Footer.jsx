@@ -1,22 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { routes } from "@constants/routes";
-import { handleRouteClick } from "@helpers/handleRouteClick";
 
-
-export default function Footer() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [visibility, setVisibility] = useState({
-    home: false,
-    project: true,
-    shelf: true,
-  });
-
-  const handleLinkClick = (route) => {
-    setIsOpen(false);
-    setVisibility(handleRouteClick(route));
-  };
-
+export default function Footer({visibility, handleLinkClick}) {
   return (
     <footer className="footer" data-section="foot">
       <div className="footer-wrapper">
