@@ -1,33 +1,33 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { routes } from "@constants/routes";
-import { handleRouteClick } from "@helpers/handleRouteClick";
 
-export default function NavigationBar({visibility, handleLinkClick}) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-
-  const logoClass =
-    isOpen && screenWidth < 540 ? "header-logo is-open" : "header-logo";
-  const navClass = isOpen ? "nav is-open" : "nav";
-  const btnClass = isOpen ? "header-cta is-open" : "header-cta";
-
+export default function Header({
+  handleOnRouteClick,
+  visibility,
+  isOpen,
+  setIsOpen,
+  screenWidth,
+  navClass,
+  btnClass,
+  logoClass,
+}) {
   const handleOnClickNav = () => {
     setIsOpen((prevState) => !prevState);
+
+    if (screenWidth < 540 && isOpen) {
+      document.body.classList.toggle("no-scroll");
+    }
   };
-
-  useEffect(() => {
-    const handleResize = () => setScreenWidth(window.innerWidth);
-
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   return (
     <header className="header">
       <div className="header-wrapper">
-        <Link className={logoClass} to="/" onClick={() => handleLinkClick("home")}>
+        <Link
+          className={logoClass}
+          to="/"
+          onClick={() => handleOnRouteClick("home")}
+        >
           Trisno.
         </Link>
         <button className={btnClass} onClick={handleOnClickNav}>
@@ -43,7 +43,7 @@ export default function NavigationBar({visibility, handleLinkClick}) {
                     <Link
                       className="anchor-hover"
                       to={route.path}
-                      onClick={() => handleLinkClick(route.name)}
+                      onClick={() => handleOnRouteClick(route.name)}
                     >
                       {route.label}
                     </Link>
@@ -51,7 +51,7 @@ export default function NavigationBar({visibility, handleLinkClick}) {
                 )
             )}
             <li className="nav-link">
-              <Link className="anchor-hover" to="/">
+              <Link className="anchor-hover" to="/" target="_blank" onClick={() => setIsOpen(false)}>
                 My Résumé
               </Link>
             </li>

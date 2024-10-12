@@ -1,5 +1,5 @@
 export default function MyProject() {
   return (
-    <>/project.</>
+    <section className="myproject" data-section="content"></section>
   )
 }

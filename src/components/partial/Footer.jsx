@@ -1,8 +1,7 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { routes } from "@constants/routes";
 
-export default function Footer({visibility, handleLinkClick}) {
+export default function Footer({ visibility, handleOnRouteClick, setIsOpen }) {
   return (
     <footer className="footer" data-section="foot">
       <div className="footer-wrapper">
@@ -24,7 +23,7 @@ export default function Footer({visibility, handleLinkClick}) {
                     <Link
                       className="anchor-hover"
                       to={route.path}
-                      onClick={() => handleLinkClick(route.name)}
+                      onClick={() => handleOnRouteClick(route.name)}
                     >
                       {route.label}
                     </Link>
@@ -32,7 +31,12 @@ export default function Footer({visibility, handleLinkClick}) {
                 )
             )}
             <li>
-              <Link className="anchor-hover" to="/">
+              <Link
+                className="anchor-hover"
+                to="/"
+                target="_blank"
+                onClick={() => setIsOpen(false)}
+              >
                 My Résumé
               </Link>
             </li>
