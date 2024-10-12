@@ -1,32 +1,24 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { routes } from "@constants/routes";
+import { handleRouteClick } from "@helpers/handleRouteClick";
+
 
 export default function Footer() {
+  const [isOpen, setIsOpen] = useState(false);
   const [visibility, setVisibility] = useState({
     home: false,
     project: true,
     shelf: true,
   });
 
-  const [isOpen, setIsOpen] = useState(false);
-
-  const links = [
-    { name: "home", path: "/", label: "Home" },
-    { name: "project", path: "/project", label: "My Project" },
-    { name: "shelf", path: "/shelf", label: "My Shelf" },
-  ];
-
-  const handleLinkClick = (link) => {
+  const handleLinkClick = (route) => {
     setIsOpen(false);
-    setVisibility({
-      home: link === "home" ? false : true,
-      project: link === "project" ? false : true,
-      shelf: link === "shelf" ? false : true,
-    });
+    setVisibility(handleRouteClick(route));
   };
 
   return (
-    <footer className="footer" dataSection="foot">
+    <footer className="footer" data-section="foot">
       <div className="footer-wrapper">
         <div className="footer-top">
           <div className="contact">
@@ -39,16 +31,16 @@ export default function Footer() {
             </Link>
           </div>
           <ul className="personal">
-            {links.map(
-              (link) =>
-                visibility[link.name] && (
-                  <li key={link.name}>
+            {routes.map(
+              (route) =>
+                visibility[route.name] && (
+                  <li key={route.name}>
                     <Link
                       className="anchor-hover"
-                      to={link.path}
-                      onClick={() => handleLinkClick(link.name)}
+                      to={route.path}
+                      onClick={() => handleLinkClick(route.name)}
                     >
-                      {link.label}
+                      {route.label}
                     </Link>
                   </li>
                 )

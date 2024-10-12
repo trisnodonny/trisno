@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { routes } from "@constants/routes";
+import { handleRouteClick } from "@helpers/handleRouteClick";
 
 export default function NavigationBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,23 +16,14 @@ export default function NavigationBar() {
     isOpen && screenWidth < 540 ? "header-logo is-open" : "header-logo";
   const navClass = isOpen ? "nav is-open" : "nav";
   const btnClass = isOpen ? "header-cta is-open" : "header-cta";
-  const links = [
-    { name: "home", path: "/", label: "Home" },
-    { name: "project", path: "/project", label: "My Project" },
-    { name: "shelf", path: "/shelf", label: "My Shelf" },
-  ];
 
   const handleOnClickNav = () => {
     setIsOpen((prevState) => !prevState);
   };
 
-  const handleLinkClick = (link) => {
+  const handleLinkClick = (route) => {
     setIsOpen(false);
-    setVisibility({
-      home: link === "home" ? false : true,
-      project: link === "project" ? false : true,
-      shelf: link === "shelf" ? false : true,
-    });
+    setVisibility(handleRouteClick(route));
   };
 
   useEffect(() => {
@@ -53,23 +46,23 @@ export default function NavigationBar() {
         </button>
         <nav className={navClass}>
           <ul className="nav-wrapper">
-            {links.map(
-              (link) =>
-                visibility[link.name] && (
-                  <li key={link.name} className="nav-link">
+            {routes.map(
+              (route) =>
+                visibility[route.name] && (
+                  <li key={route.name} className="nav-link">
                     <Link
                       className="anchor-hover"
-                      to={link.path}
-                      onClick={() => handleLinkClick(link.name)}
+                      to={route.path}
+                      onClick={() => handleLinkClick(route.name)}
                     >
-                      {link.label}
+                      {route.label}
                     </Link>
                   </li>
                 )
             )}
             <li className="nav-link">
               <Link className="anchor-hover" to="/">
-                My Resume
+                My Résumé
               </Link>
             </li>
           </ul>

@@ -10,8 +10,8 @@ html {
 
 body {
   font-family: "Inter", sans-serif;
-  color: $anti-flash-white;
-  background-color: $cerulean;
+  color: $secondary;
+  background-color: $main;
   scroll-behavior: smooth;
 
   &::-webkit-scrollbar {
@@ -23,14 +23,18 @@ body {
   }
 }
 
+.is-hidden {
+  display: none !important;
+}
+
 section {
-  &[dataSection="hero"],
-  &[dataSection="content"] {
+  &[data-section="hero"],
+  &[data-section="content"] {
     scroll-snap-align: start;
     scroll-snap-stop: normal;
   }
 
-  &[dataSection="content"] {
+  &[data-section="content"] {
     height: 100vh;
   }
 
@@ -40,7 +44,7 @@ section {
 }
 
 footer {
-  &[dataSection="foot"] {
+  &[data-section="foot"] {
     scroll-snap-align: start;
     scroll-snap-stop: normal;
     height: 100vh;

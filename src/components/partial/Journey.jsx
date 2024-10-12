@@ -1,5 +1,5 @@
 export default function Journey() {
   return (
-    <section className="journey" dataSection="content"></section>
+    <section className="journey" data-section="content"></section>
   );
 }
