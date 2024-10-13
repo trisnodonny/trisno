@@ -7,7 +7,7 @@
     flex-direction: column;
     max-width: 1440px;
     width: 100%;
-    padding: 0 6rem;
+    padding: 3rem 6rem;
     margin: 0 auto;
 
     .footer-top {
@@ -59,7 +59,7 @@
 
     }
 
-    @include breakpoint-below("sm") {
+    @include breakpoint-below("md") {
       padding: 3rem;
 
       .footer-top {

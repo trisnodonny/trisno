@@ -21,6 +21,9 @@ export default function BaseLayout() {
   const handleOnRouteClick = (route) => {
     setVisibility(routeClick(route));
 
+    if (screenWidth < 540 && isOpen) {
+      document.body.classList.remove("no-scroll");
+    }
     if (isOpen) setIsOpen(false);
   };
 

@@ -1,6 +1,6 @@
-import Hero from "@components/partial/Hero";
-import Introduction from "@components/partial/Introduction";
-import Journey from "@components/partial/Journey";
+import Hero from "@components/home/Hero";
+import Introduction from "@components/home/Introduction";
+import Journey from "@components/home/Journey";
 
 export default function HomePage() {
   return (
