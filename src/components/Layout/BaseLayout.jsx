@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, ScrollRestoration } from "react-router-dom";
 import Header from "@components/partial/Header";
 import Footer from "@components/partial/Footer";
 import { routeClick } from "@helpers/routeClick";
@@ -12,11 +12,6 @@ export default function BaseLayout() {
     shelf: true,
   });
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-
-  const navClass = isOpen ? "nav is-open" : "nav";
-  const btnClass = isOpen ? "header-cta is-open" : "header-cta";
-  const logoClass =
-    isOpen && screenWidth < 540 ? "header-logo is-open" : "header-logo";
 
   const handleOnRouteClick = (route) => {
     setVisibility(routeClick(route));
@@ -40,12 +35,9 @@ export default function BaseLayout() {
       <Header
         handleOnRouteClick={handleOnRouteClick}
         visibility={visibility}
-        isOpen
+        isOpen={isOpen}
         setIsOpen={setIsOpen}
         screenWidth={screenWidth}
-        navClass={navClass}
-        btnClass={btnClass}
-        logoClass={logoClass}
       />
       <Outlet />
       <Footer
@@ -53,6 +45,7 @@ export default function BaseLayout() {
         handleOnRouteClick={handleOnRouteClick}
         setIsOpen={setIsOpen}
       />
+      <ScrollRestoration /> 
     </>
   );
 }

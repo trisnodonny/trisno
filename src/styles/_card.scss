@@ -1,0 +1,30 @@
+.card {
+  width: 100%;
+  @include flex;
+  flex-direction: column;
+  transition: all 200ms ease-in-out;
+
+  .top {
+    width: 100%;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .bottom {
+    width: 100%;
+    padding: 2rem;
+    background-color: $white;
+
+    .card-title {
+      
+    }
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 15px 8px 6px -6px rgba(235, 234, 242, 0.58);
+  }
+}

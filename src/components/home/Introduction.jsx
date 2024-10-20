@@ -1,6 +1,6 @@
 export default function Introduction() {
   return (
-    <section className="intro" data-section="content">
+    <section className="intro" data-section="intro">
       <div className="intro-wrapper">
         <div className="text-wrapper left">
           <div className="title">Lorem</div>

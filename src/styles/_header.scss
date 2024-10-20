@@ -18,6 +18,7 @@
       font-weight: 900;
       font-size: 2rem;
       color: $secondary;
+      text-shadow: 2px 2px $main;
 
       @include breakpoint-below("sm") {
         &.is-open {

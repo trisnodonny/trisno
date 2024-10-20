@@ -1,6 +1,6 @@
 export default function Journey() {
   return (
-    <section className="journey" data-section="content">
+    <section className="journey" data-section="journey">
       <div className="journey-wrapper">
         <div className="text">
           <div className="title">Lorem, ipsum.</div>

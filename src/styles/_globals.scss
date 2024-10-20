@@ -29,12 +29,16 @@ body {
 
 section {
   &[data-section="hero"],
-  &[data-section="content"] {
+  &[data-section="intro"],
+  &[data-section="journey"],
+  &[data-section="show"] {
     scroll-snap-align: start;
     scroll-snap-stop: normal;
   }
 
-  &[data-section="content"] {
+  &[data-section="intro"],
+  &[data-section="journey"],
+  &[data-section="show"] {
     height: 100vh;
   }
 

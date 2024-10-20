@@ -7,10 +7,12 @@ export default function Header({
   isOpen,
   setIsOpen,
   screenWidth,
-  navClass,
-  btnClass,
-  logoClass,
 }) {
+  const navClass = isOpen ? "nav is-open" : "nav";
+  const btnClass = isOpen ? "header-cta is-open" : "header-cta";
+  const logoClass =
+    isOpen && screenWidth < 540 ? "header-logo is-open" : "header-logo";
+
   const handleOnClickNav = () => {
     setIsOpen((prevState) => !prevState);
 
@@ -50,7 +52,12 @@ export default function Header({
                 )
             )}
             <li className="nav-link">
-              <Link className="anchor-hover" to="/" target="_blank" onClick={() => setIsOpen(false)}>
+              <Link
+                className="anchor-hover"
+                to="/"
+                target="_blank"
+                onClick={() => setIsOpen(false)}
+              >
                 My Résumé
               </Link>
             </li>

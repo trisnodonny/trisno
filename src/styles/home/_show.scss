@@ -1,0 +1,105 @@
+.show {
+  width: 100%;
+  background-color: $white;
+  color: $main;
+  @include flex(center);
+
+  .show-wrapper {
+    max-width: 1440px;
+    width: 100%;
+    padding: 0 6rem;
+    margin: 0 auto;
+    height: auto;
+    width: 100%;
+    gap: 1rem;
+    @include flex(center);
+
+    .box-wrapper {
+      @include flex;
+      background-color: $secondary;
+      height: 100%;
+      width: 100%;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+      .box {
+        flex: 1;
+        padding: 4rem;
+
+        &:first-child {
+          border-right: 1px solid $main;
+        }
+
+        .title {
+          font-size: 3rem;
+          font-weight: bold;
+          margin-bottom: 2rem;
+        }
+
+        .desc {
+          line-height: 1.5rem;
+          margin-bottom: 4rem;
+        }
+
+        .cta-button {
+          border: 1px solid $main;
+          width: max-content;
+          transition: all 100ms ease-in-out;
+          position: relative;
+
+          &::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 100%;
+            background-color: $main;
+            transform-origin: left;
+            bottom: 0;
+            pointer-events: none;
+            @include transition(all);
+          }
+
+          a {
+            display: block;
+            padding: 1rem 2rem;
+            color: $main;
+            text-transform: uppercase;
+            font-size: 12px;
+            z-index: 2;
+            position: inherit;
+            @include transition(all);
+          }
+
+          &:hover {
+            &::after {
+              width: 100%;
+            }
+
+            a {
+              color: $white;
+            }
+          }
+        }
+      }
+    }
+    @include breakpoint-below("lg") {
+      padding: 3rem;
+
+      .box-wrapper {
+        flex-direction: column;
+
+        .box {
+          padding: 2rem;
+
+          &:first-child {
+            border-right: none;
+            border-bottom: 1px solid $main;
+          }
+
+          .desc {
+            margin-bottom: 2rem;
+          }
+        }
+      }
+    }
+  }
+}

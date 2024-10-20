@@ -1,5 +1,5 @@
 .hero {
-  background-image: linear-gradient(90deg, $main 67%, $secondary 33%);
+  background-image: linear-gradient(90deg, $main 67%, $third 33%);
 
   .hero-wrapper {
     @include flex(center, space-between);
