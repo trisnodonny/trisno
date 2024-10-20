@@ -12,10 +12,11 @@
     flex-direction: column;
     color: $black;
 
-    .title {
+    .title-wrapper {
       @include flex(center);
       flex-direction: column;
       margin-bottom: 4rem;
+      margin-top: 4rem;
 
       .top {
         font-size: 2rem;
@@ -23,7 +24,7 @@
         margin-bottom: 1.5rem;
 
         .slash {
-          opacity: .6
+          opacity: 0.6;
         }
       }
     }
@@ -35,11 +36,11 @@
     }
 
     @include breakpoint-below("lg") {
+      padding: 3rem;
     }
-  
+
     @include breakpoint-below("md") {
       padding: 3rem;
     }
   }
-
 }
